@@ -1,7 +1,7 @@
 <html lang="zh-cn">
     
     <head>
-        <title>Zero影院</title>
+        <title>MovieAssistant</title>
         {% include "include/head.html" %}
         <link href="/static/css/gloab.css" rel="stylesheet">
         <link href="/static/css/register.css" rel="stylesheet">
@@ -14,109 +14,109 @@
             {% include "include/tag.html" %}
             <div class="mikd">
                 <div class="mi_btcon" style="padding: 20px;">
-                    <center><h2>用户注册</h2></center>
+                    <center><h2>Register</h2></center>
                 </div>
             </div>
             <div class="mikd">
                 <div class="login-box f-mt10 f-pb50">
                     <div class="main bgf">
-                        <div class="reg-box-pan display-inline"{% if request.session.is_login %} style="display: none;"><script type="text/javascript">show_tip("您已登录，请注销后再进行注册。","index.html",5);</script> {% endif %}>
+                        <div class="reg-box-pan display-inline"{% if request.session.is_login %} style="display: none;"><script type="text/javascript">show_tip("Already signed in。","index.html",5);</script> {% endif %}>
                             <div class="step">
                                 <ul>
                                     <li class="col-xs-3 on"> <span class="num"><em class="f-r5"></em><i>1</i></span>  <span class="line_bg lbg-r"></span>
-                                        <p class="lbg-txt">填写账户信息</p>
+                                        <p class="lbg-txt">Account Info</p>
                                     </li>
                                     <li class="col-xs-3 {% if request.session.user_reg_step >= 1 %}on{% endif %}"> <span class="num"><em class="f-r5"></em><i>2</i></span>
                                         <span class="line_bg lbg-l"></span>
                                         <span class="line_bg lbg-r"></span>
-                                        <p class="lbg-txt">验证账户信息</p>
+                                        <p class="lbg-txt">Validate Info</p>
                                     </li>
                                     <li class="col-xs-3" {% if request.session.user_reg_step >= 2 %}on{% endif %}> <span class="num"><em class="f-r5"></em><i>3</i></span>
                                         <span class="line_bg lbg-l"></span>
                                         <span class="line_bg lbg-r"></span>
-                                        <p class="lbg-txt">完善用户信息</p>
+                                        <p class="lbg-txt">Complete personal info</p>
                                     </li>
                                     <li class="col-xs-3"> <span class="num"><em class="f-r5"></em><i>4</i></span>
                                         <span class="line_bg lbg-l"></span>
-                                        <p class="lbg-txt">注册成功</p>
+                                        <p class="lbg-txt">Register success</p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="reg-box" id="verifyCheck" style="margin-top:20px;">
                                 <form class="part1" id="part1" onsubmit="return reg1();"  {% if request.session.user_reg_step %} style="display:none"{% endif %}>
                                     {% csrf_token %}
-                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>用户名：</span>
+                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>Username：</span>
                                         <div class="f-fl item-ifo">
-                                            <input type="text" name="user_name" maxlength="20" class="txt03 f-r3 required" tabindex="1" data-valid="isNonEmpty||between:3-20||isUname" data-error="用户名不能为空||用户名长度3-20位||只能输入中文、字母、数字、下划线，且以中文或字母开头" id="adminNo"> <span class="ie8 icon-close close hide"></span>
+                                            <input type="text" name="user_name" maxlength="20" class="txt03 f-r3 required" tabindex="1" data-valid="isNonEmpty||between:3-20||isUname" data-error="Invalid username||Invalid username(3-20)||Invalid username" id="adminNo"> <span class="ie8 icon-close close hide"></span>
                                             <label class="icon-sucessfill blank hide"></label>
-                                            <label class="focus"><span>3-20位，中文、字母、数字、下划线的组合，以中文或字母开头</span>
+                                            <label class="focus"><span>Invalid username(3-20), start with alphabet</span>
                                             </label>
                                             <label class="focus valid"></label>
                                         </div>
                                     </div>
-                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>邮箱：</span> 
+                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>Email：</span> 
                                         <div class="f-fl item-ifo">
-                                            <input type="email" class="txt03 f-r3 required" name="user_mail" keycodes="email" data-valid="isNonEmpty||isEmail" data-error="邮箱地址不能为空||邮箱地址格式不正确" tabindex="2" id="email" required="required"/> <span class="ie8 icon-close close hide"></span>
+                                            <input type="email" class="txt03 f-r3 required" name="user_mail" keycodes="email" data-valid="isNonEmpty||isEmail" data-error="Invalid Email||Invalid Email" tabindex="2" id="email" required="required"/> <span class="ie8 icon-close close hide"></span>
                                             <label class="icon-sucessfill blank hide"></label>
-                                            <label class="focus">请填写有效的邮箱地址</label>
+                                            <label class="focus">Please input your email</label>
                                             <label class="focus valid"></label>
                                         </div>
                                     </div>
-                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>手机号：</span> 
+                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>Phone number：</span> 
                                         <div class="f-fl item-ifo">
-                                            <input type="text" class="txt03 f-r3 required" name="user_phone" keycodes="tel" tabindex="2" data-valid="isNonEmpty||isPhone" data-error="手机号码不能为空||手机号码格式不正确" maxlength="11" id="phone"> <span class="ie8 icon-close close hide"></span>
+                                            <input type="text" class="txt03 f-r3 required" name="user_phone" keycodes="tel" tabindex="2" data-valid="isNonEmpty||isPhone" data-error="Invalid phone number||Invalid phone number" maxlength="11" id="phone"> <span class="ie8 icon-close close hide"></span>
                                             <label class="icon-sucessfill blank hide"></label>
-                                            <label class="focus">请填写11位有效的手机号码</label>
+                                            <label class="focus">Please input your phone number</label>
                                             <label class="focus valid"></label>
                                         </div>
                                     </div>
-                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>性别：</span> 
+                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>Gender：</span> 
                                         <div class="f-fl item-ifo">
-                                            <input type="radio" id="test_radio1" name="sex" value="1" />男 &nbsp;&nbsp;
-                                            <input type="radio" id="test_radio2" name="sex" value="2" />女
+                                            <input type="radio" id="test_radio1" name="sex" value="1" />Male &nbsp;&nbsp;
+                                            <input type="radio" id="test_radio2" name="sex" value="2" />Female
                                         </div>
                                     </div>
-                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>密码：</span> 
+                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>Password：</span> 
                                         <div class="f-fl item-ifo">
-                                            <input type="password" id="password" name="user_passwd" maxlength="20" class="txt03 f-r3 required" tabindex="3" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:6-20||level:2" data-error="密码不能为空||密码长度6-20位||该密码太简单，有被盗风险，建议字母+数字的组合"> <span class="ie8 icon-close close hide" style="right:55px"></span>
+                                            <input type="password" id="password" name="user_passwd" maxlength="20" class="txt03 f-r3 required" tabindex="3" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:6-20||level:2" data-error="Invalid password||Invalid password(6-20)||Too easy password"> <span class="ie8 icon-close close hide" style="right:55px"></span>
                                             <span class="showpwd" data-eye="password"></span> 
                                             <label class="icon-sucessfill blank hide"></label>
-                                            <label class="focus">6-20位英文（区分大小写）、数字、字符的组合</label>
+                                            <label class="focus">Invalid password(6-20)</label>
                                             <label class="focus valid"></label> <span class="clearfix"></span>
-                                            <label class="strength">	<span class="f-fl f-size12">安全程度：</span>
-    	                                    <b><i>弱</i><i>中</i><i>强</i></b>
+                                            <label class="strength">	<span class="f-fl f-size12">Safe level：</span>
+    	                                    <b><i>Low</i><i>Mid</i><i>High</i></b>
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>确认密码：</span> 
+                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>Confirm Password：</span> 
                                         <div class="f-fl item-ifo">
-                                            <input type="password" maxlength="20" class="txt03 f-r3 required" tabindex="4" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:6-16||isRepeat:password" data-error="密码不能为空||密码长度6-16位||两次密码输入不一致" id="rePassword"> <span class="ie8 icon-close close hide" style="right:55px"></span>
+                                            <input type="password" maxlength="20" class="txt03 f-r3 required" tabindex="4" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:6-16||isRepeat:password" data-error="Empty||Invalid input data||Invalid input data" id="rePassword"> <span class="ie8 icon-close close hide" style="right:55px"></span>
                                             <span class="showpwd" data-eye="rePassword"></span>
                                             <label class="icon-sucessfill blank hide"></label>
-                                            <label class="focus">请再输入一遍上面的密码</label>
+                                            <label class="focus">Retype password</label>
                                             <label class="focus valid"></label>
                                         </div>
                                     </div>
-                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>验证码：</span> 
+                                    <div class="item col-xs-12"> <span class="intelligent-label f-fl"><b class="ftx04">*</b>Verify Code：</span> 
                                         <div class="f-fl item-ifo">
-                                            <input type="text" maxlength="4" name="randCode" class="txt03 f-r3 f-fl required" tabindex="4" style="width:167px" id="randCode" data-valid="isNonEmpty||isNonRandCode" data-error="验证码不能为空||验证码不符合要求"> <span class="ie8 icon-close close hide"></span>
+                                            <input type="text" maxlength="4" name="randCode" class="txt03 f-r3 f-fl required" tabindex="4" style="width:167px" id="randCode" data-valid="isNonEmpty||isNonRandCode" data-error="Can not be empty||Not correct"> <span class="ie8 icon-close close hide"></span>
                                             <label class="f-size12 c-999 f-fl f-pl10" onclick="re_captcha();">
                                                 <img src="api/captcha" style="width: 90px;height: 35px;" id="imgCode">
                                             </label>
                                             <label class="icon-sucessfill blank hide" style="left:380px"></label>
-                                            <label class="focusa">看不清？<a href="javascript:;" onclick="re_captcha();" class="c-blue">换一张</a>
+                                            <label class="focusa"><a href="javascript:;" onclick="re_captcha();" class="c-blue">Regenerate</a>
                                             </label>
                                             <label class="focus valid" style="left:370px"></label>
                                         </div>
                                     </div>
                                     <div class="item col-xs-12" style="height:auto"> <span class="intelligent-label f-fl">&nbsp;</span> 
-                                        <p class="f-size14 required" data-valid="isChecked" data-error="请先同意条款">
-                                            <input type="checkbox" checked="checked"><a href="javascript:showoutc();" class="f-ml5">我已阅读并同意条款</a>
+                                        <p class="f-size14 required" data-valid="isChecked" data-error="Check me first">
+                                            <input type="checkbox" checked="checked"><a href="javascript:showoutc();" class="f-ml5">Check me to verify you are a human</a>
                                         </p>
                                         <label class="focus valid" id="error_msg1"></label>
                                     </div>
                                     <div class="item col-xs-12"> <span class="intelligent-label f-fl">&nbsp;</span> 
-                                        <div class="f-fl item-ifo"> <input type="submit" class="btn btn-blue f-r3" id="btn_part1" value="注册"/>
+                                        <div class="f-fl item-ifo"> <input type="submit" class="btn btn-blue f-r3" id="btn_part1" value="Register"/>
                                         </div>
                                     </div>
                                 </form>
@@ -151,17 +151,17 @@
                                 <form class="part3" id="part3" onsubmit="return reg3();" enctype="multipart/form-data" {% if request.session.user_reg_step != 2 %} style="display:none"{% endif %}>
                                     {% csrf_token %}
                                     <center style="float:left;width:45%;">
-                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">昵称：</span> 
+                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">Nickname：</span> 
                                             <div class="f-fl item-ifo">
                                                 <input type="text" maxlength="20" name="user_uname" class="txt03 f-r3" tabindex="1" id="uName">
                                             </div>
                                         </div>
-                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">年龄：</span> 
+                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">Age：</span> 
                                             <div class="f-fl item-ifo">
                                                 <input type="number" maxlength="3" name="user_age" class="txt03 f-r3" tabindex="1" id="uAge">
                                             </div>
                                         </div>
-                                        <div class="col-xs-12"> <span class="intelligent-label f-fl">头像：</span> 
+                                        <div class="col-xs-12"> <span class="intelligent-label f-fl">Avatar：</span> 
                                             <div class="f-fl item-ifo">
                                                 <div style="">
                                                     <img class="" id="preview" src="static/images/user.jpg" alt="" />
@@ -171,27 +171,27 @@
                                         </div>
                                     </center>
                                     <center style="float:left;width:45%;" data-toggle="distpicker">
-                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">出生日期：</span>
+                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">Date of Birth：</span>
                                             <div class="f-fl item-ifo">
                                                 <input type="date" name="user_birthday" class="txt03 f-r3" tabindex="1" >
                                             </div>
                                         </div>
-                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">省/直辖市：</span> 
+                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">Province：</span> 
                                             <div class="f-fl item-ifo">
-                                                <select class="form-control" name="provinceName" onchange="appendList(this.options[this.options.selectedIndex].getAttribute('code'),'city')" data-province="---- 选择省 ----" id="province"></select>
+                                                <select class="form-control" name="provinceName" onchange="appendList(this.options[this.options.selectedIndex].getAttribute('code'),'city')" data-province="---- Choose Province ----" id="province"></select>
                                             </div>
                                         </div>
-                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">城市：</span> 
+                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">City：</span> 
                                             <div class="f-fl item-ifo">
-                                                <select class="form-control" name="cityName" onchange="appendList(this.options[this.options.selectedIndex].getAttribute('code'),'area')" data-city="---- 选择市 ----" id="city"></select>
+                                                <select class="form-control" name="cityName" onchange="appendList(this.options[this.options.selectedIndex].getAttribute('code'),'area')" data-city="---- Choose city ----" id="city"></select>
                                             </div>
                                         </div>
-                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">区县：</span> 
+                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">District：</span> 
                                             <div class="f-fl item-ifo">
-                                                <select class="form-control" name="districtName" data-district="---- 选择区 ----" id="area"></select>
+                                                <select class="form-control" name="districtName" data-district="---- Choose district ----" id="area"></select>
                                             </div>
                                         </div>
-                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">详细地址：</span> 
+                                        <div class="item col-xs-12"> <span class="intelligent-label f-fl">Detailed address：</span> 
                                             <div class="f-fl item-ifo">
                                                 <input type="text" name="user_address" maxlength="50" class="txt03 f-r3" tabindex="1" id="uAddress">
                                             </div>
@@ -200,7 +200,7 @@
                                     <section class="aui-flexView">
                                         <header class="aui-navBar aui-navBar-fixed">
                                             <div class="aui-center">
-                                                <span class="aui-center-title">请选择您喜爱的电影类型</span>
+                                                <span class="aui-center-title">Please choose your preferred movie types</span>
                                             </div>
                                         </header>
                                         <input type="hidden" name="user_prefer" id="user_prefer" value="" />
@@ -215,7 +215,7 @@
                                         </section>
                                         <header class="aui-navBar aui-navBar-fixed">
                                             <div class="aui-center">
-                                                <span class="aui-center-title">选择你的兴趣爱好</span>
+                                                <span class="aui-center-title">Please choose your interests</span>
                                             </div>
                                         </header>
                                         <input type="hidden" name="user_hobbies" id="user_hobbies" value="" />
@@ -237,8 +237,8 @@
                                     </div>
                                 </form>
                                 <div class="part4 text-center" style="display:none">
-                                    <h3>恭喜<span id="userName">{{ request.session.user_name }}</span>，您已注册成功，请准备登录！</h3>
-                                    <p class="c-666 f-mt30 f-mb50">页面将在 <strong id="times" class="f-size18">10</strong> 秒钟后，跳转到 <a href="./" class="c-blue">首页</a>
+                                    <h3>Congratulations!<span id="userName">{{ request.session.user_name }}</span>，you have registered successfully, you can login to the system now</h3>
+                                    <p class="c-666 f-mt30 f-mb50">You will be redirected to <a href="./" class="c-blue">homepage</a> in <strong id="times" class="f-size18">10</strong> seconds. 
                                     </p>
                                 </div>
                             </div>
@@ -247,13 +247,13 @@
                 </div>
                 <div class="m-sPopBg" style="z-index:998;"></div>
                 <div class="m-sPopCon regcon">
-                    <div class="m-sPopTitle"><strong>服务协议条款</strong><b id="sPopClose" class="m-sPopClose" onclick="closeClause()">×</b>
+                    <div class="m-sPopTitle"><strong>Service tips</strong><b id="sPopClose" class="m-sPopClose" onclick="closeClause()">×</b>
                     </div>
                     <div class="apply_up_content">
-                        <pre class="f-r0"><strong>同意以下服务条款，提交注册信息</strong>
+                        <pre class="f-r0"><strong>Register</strong>
                         </pre>
                     </div>
-                    <center><a class="btn btn-blue btn-lg f-size12 b-b0 b-l0 b-t0 b-r0 f-pl50 f-pr50 f-r3" href="javascript:closeClause();">已阅读并同意此条款</a>
+                    <center><a class="btn btn-blue btn-lg f-size12 b-b0 b-l0 b-t0 b-r0 f-pl50 f-pr50 f-r3" href="javascript:closeClause();">Check me to prof you are a human</a>
                     </center>
                 </div>
                 <script type="text/javascript">

@@ -46,7 +46,8 @@ function reg1(){
 					$("#userName").html(userName);  //填充用户名
 					$("#verifyYz").click();	//发送验证码
 					$(".part1").hide();	//切换显示登陆步骤
-					$(".part2").show();
+					// $(".part2").show();
+					$(".part3").show();
 					$(".step li").eq(1).addClass("on");
 					// alert(data.data.msg);
 				}else{

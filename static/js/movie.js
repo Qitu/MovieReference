@@ -10,13 +10,13 @@ if( title ==  original_title){
 }
 let aka = strToJson(movie_data.aka); //又名
 let tags = strToJson(movie_data.tags);  //标签
-let durations = strToJson(movie_data.durations); //片长
-let pubdates = strToJson(movie_data.pubdates);  //上映
+let durations = strToJson(movie_data.durations); //Length
+let pubdates = strToJson(movie_data.pubdates);  //Release Time
 let photos = strToJson(movie_data.photos);  //剧照
-let languages = strToJson(movie_data.languages);  //语言
-let actor = strToJson(movie_data.actor);  //主演
-let directors = strToJson(movie_data.directors);  //导演
-let writers = strToJson(movie_data.writers);  //编剧
+let languages = strToJson(movie_data.languages);  //Languages
+let actor = strToJson(movie_data.actor);  //Actor
+let directors = strToJson(movie_data.directors);  //Director
+let writers = strToJson(movie_data.writers);  //Writers
 let summary = movie_data.summary;  //简介
 let videos = strToJson(movie_data.videos);  //短视频
 let images = strToJson(movie_data.images);  //封面
@@ -66,31 +66,31 @@ if(videos.length!=0) {
     videos_txt = videos_txt + "</div></li>";
 }
 
-let genres_txt = For1("类型","genres",genres);
+let genres_txt = For1("Type","genres",genres);
 let tags_txt = For1("标签","tag",tags);
-let languages_txt = For1("语言","languages",languages);
-let countries_txt = For1("地区","countries",countries);
+let languages_txt = For1("Languages","languages",languages);
+let countries_txt = For1("Area","countries",countries);
 
 let aka_txt = For2("又名","aka",aka);
-let pubdates_txt = For2("上映","pubdates",pubdates);
-let durations_txt = For2("片长","durations",durations);
+let pubdates_txt = For2("Release Time","pubdates",pubdates);
+let durations_txt = For2("Length","durations",durations);
 
-let directors_txt = For3("导演","directors",directors);
-let writers_txt = For3("编剧","writers",writers);
-let actor_txt = For3("主演","actor",actor);
+let directors_txt = For3("Director","directors",directors);
+let writers_txt = For3("Writer","writers",writers);
+let actor_txt = For3("Actor","actor",actor);
 
-let rating_txt = '<li><span class=\'li_name\'>豆瓣</span>：<a class="dbpingfen" rel="nofollow" href="https://movie.douban.com/subject/'+ movie_id +'/" title="在豆瓣查看评分" target="_blank">'+rating['average']+'分</a> from '+ratings_count+' users </li>';
-let summary_txt = '<li><span class=\'li_name\'>简介</span>：'+summary+ "</li>";
-let year_txt = '<li><span class=\'li_name\'>年份</span>：<a href="search.html?type=year&s='+ year +'">'+year+ "</a></li>";
+let rating_txt = '<li><span class=\'li_name\'>DouBan</span>：<a class="dbpingfen" rel="nofollow" href="https://movie.douban.com/subject/'+ movie_id +'/" title="在豆瓣查看评分" target="_blank">'+rating['average']+'分</a> from '+ratings_count+' users </li>';
+let summary_txt = '<li><span class=\'li_name\'>Description</span>：'+summary+ "</li>";
+let year_txt = '<li><span class=\'li_name\'>Year</span>：<a href="search.html?type=year&s='+ year +'">'+year+ "</a></li>";
 
-let photos_txt = '<li style="margin-top:20px;"><span class=\'li_name\'>剧照</span>：<div style="width:100%;" class="movie_photos">';
+let photos_txt = '<li style="margin-top:20px;"><span class=\'li_name\'>Photoes</span>：<div style="width:100%;" class="movie_photos">';
 for (let i = 0; i < photos.length; i++) {
     photos_txt  = photos_txt + '<a target="_blank" href="'+ photos[i]["alt"] +'"><img src="' + photos[i]["thumb"] + '" noreferer="" /></a> ';
 }
 photos_txt  = photos_txt + "</div></li>";
 
 moviedteail_list = moviedteail_list + genres_txt + countries_txt + year_txt + languages_txt +aka_txt + tags_txt + pubdates_txt+ durations_txt + directors_txt +
-    writers_txt + actor_txt + rating_txt + videos_txt +  '<li><span class="li_name">评分</span>：' +
+    writers_txt + actor_txt + rating_txt + videos_txt +  '<li><span class="li_name">Rating</span>：' +
     '<div id="movie_star_wrapper">\n' +
     '<input type="radio" id="star1" name="star" value="1"/>\n' +
     '<label for="star1"></label>\n' +

@@ -38,7 +38,8 @@ FONT_PATH = 'file/汉仪中楷简.ttf'  # 设置字体样式，支持TTF等文�
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tej=6wda3t#ct&ncym!*d&d&mq-*)-1ztxz%zp(%_ewbg%4cke'
+# SECRET_KEY = 'tej=6wda3t#ct&ncym!*d&d&mq-*)-1ztxz%zp(%_ewbg%4cke'
+SECRET_KEY = 'tej=6wda3t#ct&ncym!*d&d&mq-*)-1ztxz%zp(%_ewbe'
 
 INSTALLED_APPS = [
     'simpleui',

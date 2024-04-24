@@ -132,7 +132,7 @@ def movie(request):
     # data["movie_data"] = movie_search_by_web(request.GET.get("id"))
     if not data['movie_data']:
         return render(request, 'tempate.html', {"tip": "电影信息无效，不存在有关信息！", "url": "/", "time": 3,
-                                                "title": "错误页面", "data": data})
+                                                "title": "Error page", "data": data})
     cookie_uuid = request.COOKIES.get("uuid")
     if not cookie_uuid:
         cookie_uuid = uuid.uuid4().hex
@@ -154,7 +154,7 @@ def foget_password(request):
 def user_info(request):
     data = page_nav(request)
     if isNotLogin(request):
-        return render(request, 'tempate.html', {"tip": "请先登录！", "url": "/", "time": 3, "title": "错误页面",
+        return render(request, 'tempate.html', {"tip": "Login first！", "url": "/", "time": 3, "title": "Error page",
                                                 "data": data})
         # return JsonError("请先获取验证码！")
     user_id = request.session['user_id']
@@ -165,43 +165,43 @@ def user_info(request):
         data["userBaseData"] = userBaseData
         data["usersDetailData"] = usersDetailData
         data['user_hobbies'] = getHobbiesTag()
-        return render(request, 'userInfo.html', {"page": "user_info_modify.html", "data": data, "title": "用户中心"})
+        return render(request, 'userInfo.html', {"page": "user_info_modify.html", "data": data, "title": "UserInfo"})
     else:
-        return render(request, 'tempate.html', {"tip": "用户不存在，请重新登陆！", "url": "/", "time": 3,
-                                                "title": "错误页面", "data": data})
+        return render(request, 'tempate.html', {"tip": "User not found！", "url": "/", "time": 3,
+                                                "title": "Error page", "data": data})
 
 
 # 修改密码
 def modify_password(request):
     data = page_nav(request)
     if isNotLogin(request):
-        return render(request, 'tempate.html', {"tip": "请先登录！", "url": "/", "time": 3, "title": "错误页面",
+        return render(request, 'tempate.html', {"tip": "Login first！", "url": "/", "time": 3, "title": "Error page",
                                                 "data": data})
         # return JsonError("请先获取验证码！")
     user_id = request.session['user_id']
     user_rs = UsersBase.objects.filter(id=user_id)  # .values("user_passwd")
     if user_rs.exists():
         return render(request, 'userInfo.html', {"page": "user_password_modify.html", "data": data,
-                                                 "title": "修改密码"})
+                                                 "title": "Change password"})
     else:
-        return render(request, 'tempate.html', {"tip": "用户不存在，请重新登陆！", "url": "/", "time": 3,
-                                                "title": "错误页面", "data": data})
+        return render(request, 'tempate.html', {"tip": "User not found！", "url": "/", "time": 3,
+                                                "title": "Error page", "data": data})
 
 
-# 修改邮箱
+# Change Email
 def modify_email(request):
     data = page_nav(request)
     if isNotLogin(request):
-        return render(request, 'tempate.html', {"tip": "请先登录！", "url": "/", "time": 3, "title": "错误页面",
+        return render(request, 'tempate.html', {"tip": "Please login first", "url": "/", "time": 3, "title": "Error page",
                                                 "data": data})
         # return JsonError("请先获取验证码！")
     user_id = request.session['user_id']
     user_rs = UsersBase.objects.filter(id=user_id)  # .values("user_passwd")
     if user_rs.exists():
-        return render(request, 'userInfo.html', {"page": "user_email_modify.html", "data": data, "title": "修改邮箱"})
+        return render(request, 'userInfo.html', {"page": "user_email_modify.html", "data": data, "title": "Change Email"})
     else:
-        return render(request, 'tempate.html', {"tip": "用户不存在，请重新登陆！", "url": "/", "time": 3,
-                                                "title": "错误页面", "data": data})
+        return render(request, 'tempate.html', {"tip": "User not found", "url": "/", "time": 3,
+                                                "title": "Error page", "data": data})
 
 
 # 用户收藏管理
@@ -209,17 +209,17 @@ def user_collection(request):
     data = page_nav(request)
     if isNotLogin(request):
         return render(request, 'tempate.html',
-                      {"tip": "请先登录！", "url": "/", "time": 3, "title": "错误页面", "data": data})
+                      {"tip": "Please login first", "url": "/", "time": 3, "title": "Error page", "data": data})
         # return JsonError("请先获取验证码！")
     user_id = request.session['user_id']
     user_rs = UsersBase.objects.filter(id=user_id)  # .values("user_passwd")
     data["user_movie_like"] = get_user_like(user_id=user_id)
     if user_rs.exists():
         return render(request, 'userInfo.html',
-                      {"page": "user_collection.html", "data": data, "title": "收藏管理"})
+                      {"page": "user_collection.html", "data": data, "title": "Manage collections"})
     else:
         return render(request, 'tempate.html',
-                      {"tip": "用户不存在，请重新登陆！", "url": "/", "time": 3, "title": "错误页面", "data": data})
+                      {"tip": "User not found", "url": "/", "time": 3, "title": "Error page", "data": data})
 
 
 # 用户评论管理
@@ -227,17 +227,17 @@ def user_comment(request):
     data = page_nav(request)
     if isNotLogin(request):
         return render(request, 'tempate.html',
-                      {"tip": "请先登录！", "url": "/", "time": 3, "title": "错误页面", "data": data})
+                      {"tip": "Please login first", "url": "/", "time": 3, "title": "Error page", "data": data})
         # return JsonError("请先获取验证码！")
     user_id = request.session['user_id']
     user_rs = UsersBase.objects.filter(id=user_id)  # .values("user_passwd")
     data["user_comment"] = get_user_comment(user_id=user_id)
     if user_rs.exists():
         return render(request, 'userInfo.html',
-                      {"page": "user_comment.html", "data": data, "title": "评论管理"})
+                      {"page": "user_comment.html", "data": data, "title": "Comments"})
     else:
         return render(request, 'tempate.html',
-                      {"tip": "用户不存在，请重新登陆！", "url": "/", "time": 3, "title": "错误页面", "data": data})
+                      {"tip": "User not found", "url": "/", "time": 3, "title": "Error page", "data": data})
 
 
 # 管理员验证
@@ -248,7 +248,7 @@ def check_admin_login(fn):
             data = page_nav(request)
             if isNotLogin(request):
                 return render(request, 'tempate.html',
-                              {"tip": "请先登录！", "url": "/", "time": 3, "title": "错误页面", "data": data})
+                              {"tip": "Please login first", "url": "/", "time": 3, "title": "Error page", "data": data})
 
             else:
                 if request.session.get("user_role") == '2':
@@ -257,7 +257,7 @@ def check_admin_login(fn):
                     return fn(request, *args, **kwargs)
                 else:
                     return render(request, 'tempate.html',
-                                  {"tip": "无权限访问！", "url": "/", "time": 3, "title": "错误页面", "data": data})
+                                  {"tip": "Invalid role！", "url": "/", "time": 3, "title": "Error page", "data": data})
                 # 获取用户当前访问的url，并传递给/user/login/
                 # next = request.get_full_path()
                 # red = HttpResponseRedirect('/user/login/?next=' + next)

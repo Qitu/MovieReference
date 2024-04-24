@@ -1,7 +1,7 @@
 <html lang="zh-cn">
     
     <head>
-        <title>Zero影院</title>
+        <title>MovieAssistant</title>
         {% include "include/head.html" %}
     </head>
     
@@ -18,8 +18,8 @@
             <div class="mikd">
                 <div class="mi_btcon">
                     <div class="bt_tit mi_ne_kd">
-                        	<h2><a href="javascript:void(0);">最新电影</a><i class="fa"></i></h2>
-                	<a target="_blank" href="/search.html?type=new" class="moreb">更多<i class="el-icon-d-arrow-right"></i></a>
+                        	<h2><a href="javascript:void(0);">Latest movies</a><i class="fa"></i></h2>
+                	<a target="_blank" href="/search.html?type=new" class="moreb">More<i class="el-icon-d-arrow-right"></i></a>
                     </div>
                     <div class="bt_img mi_ne_kd leibox" id="movie_douban_new">
 
@@ -29,7 +29,7 @@
                     <div class="mi_btcon">
                         <div class="bt_tit mi_ne_kd">
                             	<h2><a href="javascript:void(0);">{{ tag.tag }}</a><i class="fa"></i></h2>
-                    	<a target="_blank" href="/search.html?type=geners&s={{ tag.tag }}" class="moreb">更多<i class="el-icon-d-arrow-right"></i></a>
+                    	<a target="_blank" href="/search.html?type=geners&s={{ tag.tag }}" class="moreb">More<i class="el-icon-d-arrow-right"></i></a>
                         </div>
                         <div class="bt_img mi_ne_kd leibox" id="movie_index_tag_{{ forloop.counter }}">
 
@@ -38,8 +38,8 @@
                 {% endfor %}
                 <div class="mi_btcon">
                     <div class="bt_tit mi_ne_kd">
-                        	<h2><a href="javascript:void(0);">豆瓣高分电影</a><i class="fa"></i></h2>
-                	<a target="_blank" href="/search.html?type=top" class="moreb">更多<i class="el-icon-d-arrow-right"></i></a>
+                        	<h2><a href="javascript:void(0);">Trending movies on DouBan</a><i class="fa"></i></h2>
+                	<a target="_blank" href="/search.html?type=top" class="moreb">More<i class="el-icon-d-arrow-right"></i></a>
                     </div>
                     <div class="bt_img mi_ne_kd leibox" id="movie_douban_top">
 

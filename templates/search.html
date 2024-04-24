@@ -2,7 +2,7 @@
 {% load set_var %}
 {% set movie_datas = data.movie_data %}
     <head>
-        <title>Zero影院</title>
+        <title>MovieAssistant</title>
         {% include "include/head.html" %}
     </head>
     
@@ -12,7 +12,7 @@
             {% include "include/tag.html" %}
             <div class="mikd">
                 <div class="mi_btcon" style="padding: 20px;">
-                    <h2>共搜索到：<span id="movie_total">0</span>条相关信息！</h2>
+                    <h2>Found：<span id="movie_total">0</span> related data！</h2>
                     <script type="text/javascript">
                         let movie_data = {{ movie_datas|safe|default:"[]" }};
                     </script>

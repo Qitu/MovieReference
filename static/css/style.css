@@ -191,12 +191,12 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
     box-shadow: 0 0 6px #1b1b1b;
 }
 #nav-ico {
-    height: 100px;
-    width: 100px;
+    height: 36px;
+    width: 36px;
     /*border:2px solid #3cb14b;*/
     border-radius:100%;
     position:absolute;
-    top:-23px;
+    top: 5px;
     right:0%;
     overflow:hidden;
     background:url(../images/icon.ico) no-repeat center content-box;

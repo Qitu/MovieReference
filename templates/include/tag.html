@@ -7,11 +7,11 @@
 {#                {% for tag in data.movie_tag %}#}
 {#                    <li class="menu-item menu-item-type-taxonomy menu-item-object-movie_bt_tags"><a href="category.html?tag={{ tag.movie_type }}">{{ tag.movie_type }}</a></li>#}
 {#                {% endfor %}#}
-{#                <li class="menu-item menu-item-type-taxonomy menu-item-object-movie_bt_tags"><a href="category.html?tag=all">更多</a></li>#}
+{#                <li class="menu-item menu-item-type-taxonomy menu-item-object-movie_bt_tags"><a href="category.html?tag=all">More</a></li>#}
                 {% for tag in data.movie_tag %}
                     <li class="menu-item menu-item-type-taxonomy menu-item-object-movie_bt_tags"><a href="/search.html?type=tag&s={{ tag.movie_type }}">{{ tag.movie_type }}</a></li>
                 {% endfor %}
-                <li class="menu-item menu-item-type-taxonomy menu-item-object-movie_bt_tags"><a href="/search.html?type=all">更多</a></li>
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-movie_bt_tags"><a href="/search.html?type=all">More</a></li>
                 <!-- Nav cache end -->
             </ul>
         </div>

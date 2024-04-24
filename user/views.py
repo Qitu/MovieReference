@@ -105,7 +105,6 @@ class user_logout(APIView):
     def post(self, request, *args, **kwargs):
         return JsonError("不支持POST请求！")
 
-
 # 用户注册第一步
 class user_register1(APIView):
     def get(self, request, *args, **kwargs):
@@ -145,7 +144,7 @@ class user_register1(APIView):
 
             user = UsersBase.objects.create(user_name=user_name, user_uname=user_name, user_mail=user_mail,
                                             user_phone=user_phone, user_gender=user_gender,
-                                            user_passwd=md5(user_passwd), user_reg_step=1)
+                                            user_passwd=md5(user_passwd), user_reg_step=2, user_status=1)
             UsersDetail.objects.create(user_id=user)
 
             tag_thread_work("user_info_tag", user_id=user.id, user_phone=user_phone, user_gender=user_gender)
@@ -153,8 +152,8 @@ class user_register1(APIView):
             request.session['user_name'] = user_name
             request.session['user_id'] = user.id
             request.session['user_email'] = user_mail
-            request.session['user_status'] = 0
-            request.session['user_reg_step'] = 1
+            request.session['user_status'] = 1
+            request.session['user_reg_step'] = 2
             # del request.session['reg_verify_code']
             request.session['reg_verify_code'] = ""
 

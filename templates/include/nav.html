@@ -11,7 +11,7 @@
     </div>
     <div id="nav-right" style="width:83%;float:right;height: 50px;">
         <div class="nav-content">
-            <div class="h1"><a href="/"><h1>Zero影院</h1></a></div>
+            <div class="h1"><a href="/"><h1>Home</h1></a></div>
             <input type="hidden" value="{{ request.session.user_id }}" name="user_id" />
         </div>
 
@@ -29,7 +29,7 @@
             let movie_nav_tag = {{ data.movie_nav_tag|safe|default:"[]" }};
         </script>
         <div class="nav-content">
-            <div class="souuo"><div id="sosuobox"><form action="/search.html" class="w-search-form show_hidden" style="margin-top: 4px;"><input type="hidden" value="all" name="type" /><input type="text" value="" id="s" name="s" placeholder="电影名称/类型/语言/年份/国家" class="soiput"> <button type="submit" class="souicon"><i class="fa-search fa"></i></button></form></div></div>
+            <div class="souuo"><div id="sosuobox"><form action="/search.html" class="w-search-form show_hidden" style="margin-top: 4px;"><input type="hidden" value="all" name="type" /><input type="text" value="" id="s" name="s" placeholder="Movie Name/Type/Languang/Country" class="soiput"> <button type="submit" class="souicon"><i class="fa-search fa"></i></button></form></div></div>
         </div>
         <div class="nav-content">
             <script type="text/javascript">
@@ -43,20 +43,20 @@
             </div>
             <div class="nav-meun">
                 <div class="nav-histroy">
-                    <h1 class="title">历史浏览记录</h1>
+                    <h1 class="title">Visit History</h1>
 
                     <div id="user_5_brow" class="bt_img mi_ne_kd leibox history-show">
 
                     </div>
-                    <h1 class="title like-show"><a href="/userCollection.html" >收藏记录</a></h1>
+                    <h1 class="title like-show"><a href="/userCollection.html" >Collections</a></h1>
 
                     <div id="user_5_like" class="bt_img mi_ne_kd leibox history-show like-show">
 
                     </div>
-                    <h1 class="title cai-show">猜你喜欢</h1>
+                    <h1 class="title cai-show">Guess you like</h1>
 
                     <div id="user_5_cai" class="bt_img mi_ne_kd leibox history-show cai-show">
-                        <h1 style="width: 100px;text-align: center;">无信息</h1>
+                        <h1 style="width: 100px;text-align: center;">No data</h1>
                     </div>
                 </div>
             </div>
@@ -67,14 +67,14 @@
             <div class="btn-group">
                 <ul class="dropdown-menu top-dropdown-ul" role="menu" style="top: 95%;">
                     {% if request.session.user_role == '2' %}
-                        <li ><a href="/admin/">管理中心</a></li>
+                        <li ><a href="/admin/">Admin Center</a></li>
                     {% endif %}
-                    <li ><a href="/userInfo.html">用户中心</a></li>
-                    <li ><a href="/modifyPwd.html">密码修改</a></li>
-                    <li ><a href="/modifyEmail.html">邮箱修改</a></li>
-                    <li ><a href="/userCollection.html">收藏管理</a></li>
-                    <li ><a href="/userComment.html">评论管理</a></li>
-                    <li onclick="logout();"><a href="#">注销</a></li>
+                    <li ><a href="/userInfo.html">User Center</a></li>
+                    <li ><a href="/modifyPwd.html">Change Password</a></li>
+                    <li ><a href="/modifyEmail.html">Change Email</a></li>
+                    <li ><a href="/userCollection.html">Manage Collections</a></li>
+                    <!-- <li ><a href="/userComment.html">Comments</a></li> -->
+                    <li onclick="logout();"><a href="#">Logout</a></li>
                 </ul>
                 <div class="dropdown-toggle" data-toggle="dropdown" style="color: black;padding: 10px;height: 50px;cursor: pointer;">
                     <a id="top-dropdown-btn" style="position: relative;" href="userInfo.html">
@@ -88,37 +88,37 @@
 {% else %}
         <div class="nav-content">
             <div class="login h1">
-                <h1><a>登录</a></h1>
+                <h1><a>Sign in</a></h1>
             </div>
             <div class="nav-meun">
                 <div style="margin:0 10% 0 10%;">
 
                     <div>
-                        <h1 style="text-align: center;font-size: 24px;">用户登录</h1>
+                        <h1 style="text-align: center;font-size: 24px;">User login</h1>
                         <form class="login-form" id="login_form" onsubmit="return login();" style="width: 300px;text-align: center;margin: 0 auto;color: black;">
                             {% csrf_token %}
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-addon" style="background: #fff;">
-                                        <img src="/static/images/log_ic01.png" width="16" height="16" alt="用户名">
+                                        <img src="/static/images/log_ic01.png" width="16" height="16" alt="Username">
                                     </div>
-                                    <input type="text" class="form-control" name="username" id="loginName" value="" placeholder="用户名/邮箱" onblur="" autocomplete="off" style="color: black;font-weight: bold;">
+                                    <input type="text" class="form-control" name="username" id="loginName" value="" placeholder="Username / Email" onblur="" autocomplete="off" style="color: black;font-weight: bold;">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-addon" style="background: #fff;">
-                                        <img src="/static/images/log_ic02.png" width="16" height="16" alt="密码">
+                                        <img src="/static/images/log_ic02.png" width="16" height="16" alt="Password">
                                     </div>
-                                    <input type="password" class="form-control" name="password" id="loginPwd" value="" placeholder="密码" onblur="" autocomplete="off" style="color: black">
+                                    <input type="password" class="form-control" name="password" id="loginPwd" value="" placeholder="Password" onblur="" autocomplete="off" style="color: black">
                                 </div>
                             </div>
                             <div class="form-group" id="myDiv">
                                 <span id="login_tip" class="checkbox pull-left " target="_blank" style="margin-top: 0;color: red;"></span>
-                                <a href="forgetPwd.html" id="wjmm" class="checkbox pull-right " target="_blank" style="margin-top: 0;">忘记密码？</a>
+                                <a href="forgetPwd.html" id="wjmm" class="checkbox pull-right " target="_blank" style="margin-top: 0;">Forgot password</a>？</a>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block" id="dl">登 录</button>
+                                <button type="submit" class="btn btn-primary btn-block" id="dl">Login</button>
                             </div>
                         </form>
                     </div>
@@ -128,7 +128,7 @@
         </div>
         <div class="nav-content" style="margin-left:10px;">
             <div class="register h1">
-                <h1><a href="/register.html">注册</a></h1>
+                <h1><a href="/register.html">Register</a></h1>
             </div>
         </div>
 {% endif %}
