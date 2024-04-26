@@ -125,7 +125,7 @@ var dicts = {
     //问题
     'fas fa-question': ['提问', '问题', '询问', '疑问', '解答', '帮助', 'question', 'ask', '未知'],
     //tag
-    'fas fa-tags': ['tag', '标签'],
+    'fas fa-tags': ['tag', 'Tag'],
     //开发
     'fas fa-laptop-code': ['开发', '程序员', '电脑', '笔记本', '计算机'],
     //二维码

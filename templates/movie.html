@@ -9,7 +9,6 @@
     <body class="home">
         {% include "include/nav.html" %}
         <div id="main">
-            {% include "include/tag.html" %}
             <script type="text/javascript">
                 let movie_data = {{ movie_datas|safe|default:"[]" }};
                 let commentData = {{ data.movie_comments|safe|default:"[]" }};
@@ -18,7 +17,7 @@
                 let user_movie_comment_id = {{ data.user_movie_comment_id|safe|default:"[]" }};
                 let movie_5_cai = {{ data.movie_5_cai|safe|default:"[]" }};
             </script>
-            <div class="mikd" id="movie_detail">
+            <div class="mikd" id="movie_detail" style="margin-top: 80px;">
 
             </div>
             <div class="mikd">

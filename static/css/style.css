@@ -172,8 +172,8 @@ a:hover{
 #nav {
     /*position:relative;*/
     width: 100%;
-    height: 50px;
-    color: black;
+    padding: 8px 0;
+    color: white;
     top: 0px;
     /*opacity: .5;*/
     /*background: -webkit-gradient(linear, left top, right top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-stop(0.75,
@@ -185,10 +185,11 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
     /*border-top: 1px solid black;border-bottom: 1px solid black;*/
     position: fixed;
     z-index: 150;
-    background-color: rgba(255, 255, 255, 0.83);
+    background-color: rgba(0, 0, 0, 0.83);
     /*color: #fff;*/
     transition: background 0.3s ease-in-out 0s;
-    box-shadow: 0 0 6px #1b1b1b;
+    /* box-shadow: 0 0 6px #1b1b1b; */
+
 }
 #nav-ico {
     height: 36px;
@@ -270,7 +271,7 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
 }
 
 .nav-content h1 {
-    color: #3a3a3a;
+    color: white;
     padding: 0 10px;
     font: normal 12px"Microsoft YaHei", "SimSun";
     /*font-size: 2em;*/
@@ -329,7 +330,7 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
 /* transform:translateY(-100%);*/
 /* transition:all .5s;*/
 /*}*/
-.nav-meun:hover {
+.nav-meun {
     background: rgba(241, 241, 241, 0.9);
     /*transform:translateY(-100%);*/
     transition:all .5s;
@@ -371,6 +372,7 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
     vertical-align: middle;
     text-align: center;
     float: left;
+    color: #303435;
 }
 
 .nav-content .nav-meun .nav-histroy .history-show {
@@ -507,7 +509,7 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
     min-width: 160px;
     padding: 5px 0;
     /*margin: 2px 0 0;*/
-    color: black;
+    color: white;
     font-size: 14px;
     text-align: left;
     list-style: none;
@@ -624,10 +626,10 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
 }
 .mikd {
     max-width: 1400px;
-    margin: 20px 40px;
+    /* margin: 20px 40px; */
     padding: 0 20px;
-    background-color: #fff;
-    border-radius: 20px;
+    /* background-color: #fff; */
+    /* border-radius: 20px; */
 }
 .mi_btcon {
     border-bottom-color:#e8e8e8;
@@ -672,6 +674,7 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
     position: relative;
     overflow: hidden;
     font-size: 16px;
+    border-radius: 6px;
 }
 .bt_img li a:hover .zoom-icon {
     opacity:1;
@@ -735,7 +738,7 @@ top, from(#8a5fe9), color-stop(0.25, #8a8ded), color-stop(0.5, #b083ed), color-s
 .bt_tit a {
     color: #3a3a3a;
     font-size: 22px;
-    border-left:4px solid #00b2c2;
+    border-left:4px solid #3a3a3a;
     padding-left:10px;
 }
 .dytit {
@@ -994,10 +997,10 @@ footer .connect:hover{
 .pagenavi_txt a:hover{ background-color:#00c6cd;color: black!important;}
 
 .movie_photos a img{
-    box-shadow: 4px 6px 7px 3px #8c8282;
-    margin: 10px;
-    /*height: 290px;*/
-    width: 30%;
+    /* box-shadow: 4px 6px 7px 3px #8c8282; */
+    margin: 10px 10px 10px 0;
+    height: 290px;
+    /* width: 30%; */
 }
 .li_name{
     font-weight: bolder;
@@ -1009,8 +1012,8 @@ footer .connect:hover{
 .movie_video img{
     border: 1px solid #a99a9a;
     border-radius: 50%;
-    margin: 10px;
-    max-width: 34px;
+    /* margin: 10px; */
+    max-width: 20px;
 }
 .movie_video img:hover{
     box-shadow: 1px 1px 1px 1px #988c8c;
@@ -1028,13 +1031,17 @@ footer .connect:hover{
 } /*原始样式*/
 .movie_like_cs{color:#f00;}/*点击后出现样式*/
 
+#movie_star_wrapper {
+    position: relative;
+    top: 28px;
+}
 /*收藏按钮样式*/
 #movie_star_wrapper input {
     display: none;
 }
 #movie_star_wrapper label {
     cursor: pointer;
-    font-size: 40px;
+    font-size: 28px;
     color: yellow;
     display: block;
     width: 50px;
@@ -1048,7 +1055,7 @@ footer .connect:hover{
     -o-transition: all 0.2s;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
-    text-shadow: 0 3px 3px #2b3c4e;
+    text-shadow: 1px 2px 5px rgba(0,0,0,0.2);
 }
 #movie_star_wrapper label:hover {
     font-size: 50px;

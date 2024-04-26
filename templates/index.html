@@ -6,17 +6,15 @@
     </head>
     
     <body class="home">
-        {% include "include/focus.html" %}
         {% include "include/nav.html" %}
-        <div id="main">
-            {% include "include/tag.html" %}
+        <div id="main" style="margin-top: 90px;">
             <script type="text/javascript">
                 let movie_douban_top = {{ data.movie_douban_top|safe|default:"[]" }};
                 let movie_douban_new = {{ data.movie_douban_new|safe|default:"[]" }};
                 let movie_index_tag = {{ data.movie_index_tag|safe|default:"[]" }};
             </script>
             <div class="mikd">
-                <div class="mi_btcon">
+                <!-- <div class="mi_btcon">
                     <div class="bt_tit mi_ne_kd">
                         	<h2><a href="javascript:void(0);">Latest movies</a><i class="fa"></i></h2>
                 	<a target="_blank" href="/search.html?type=new" class="moreb">More<i class="el-icon-d-arrow-right"></i></a>
@@ -24,7 +22,7 @@
                     <div class="bt_img mi_ne_kd leibox" id="movie_douban_new">
 
                     </div>
-                </div>
+                </div> -->
                 {% for tag in data.movie_index_tag %}
                     <div class="mi_btcon">
                         <div class="bt_tit mi_ne_kd">

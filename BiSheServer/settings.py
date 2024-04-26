@@ -78,24 +78,24 @@ else:
         'localhost'
     ]
     INSTALLED_APPS.append('django_extensions')
-    INSTALLED_APPS.append('debug_toolbar')
+    # INSTALLED_APPS.append('debug_toolbar')
 
-    MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
+    # MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
 
-    DEBUG_TOOLBAR_PANELS = [
-        'debug_toolbar.panels.timer.TimerPanel',
-        'debug_toolbar.panels.headers.HeadersPanel',
-        'debug_toolbar.panels.request.RequestPanel',
-        'debug_toolbar.panels.sql.SQLPanel',
-        'debug_toolbar.panels.cache.CachePanel',
-        'debug_toolbar.panels.logging.LoggingPanel',
-    ]
+    # DEBUG_TOOLBAR_PANELS = [
+    #     'debug_toolbar.panels.timer.TimerPanel',
+    #     'debug_toolbar.panels.headers.HeadersPanel',
+    #     'debug_toolbar.panels.request.RequestPanel',
+    #     'debug_toolbar.panels.sql.SQLPanel',
+    #     'debug_toolbar.panels.cache.CachePanel',
+    #     'debug_toolbar.panels.logging.LoggingPanel',
+    # ]
 
-    DEBUG_TOOLBAR_CONFIG = {
-        'JQUERY_URL': 'https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js',
-        'SHOW_COLLAPSED': True,
-        'SHOW_TOOLBAR_CALLBACK': lambda x: True,
-    }
+    # DEBUG_TOOLBAR_CONFIG = {
+    #     'JQUERY_URL': 'https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js',
+    #     'SHOW_COLLAPSED': True,
+    #     'SHOW_TOOLBAR_CALLBACK': lambda x: True,
+    # }
     STATICFILES_DIRS = (
         os.path.join(os.path.dirname(__file__), "../" + default["static_home"]).replace('\\', '/'),
     )

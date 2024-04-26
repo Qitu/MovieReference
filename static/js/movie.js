@@ -59,7 +59,7 @@ function For3(for_name,for_type, for_list) {
 
 var videos_txt = "";
 if(videos.length!=0) {
-    videos_txt = "<li><span class='li_name'>视频</span>：<div class=\"movie_video\">";
+    videos_txt = "<li><span class='li_name'>Source</span>：<div class=\"movie_video\">";
     for (let i = 0; i < videos.length; i++) {
         videos_txt = videos_txt + '<a target="_blank" title="'+videos[i]["source"]["name"]+'" href="'+videos[i]["sample_link"]+'" ><img alt="'+videos[i]["source"]["name"]+'" src="'+videos[i]["source"]["pic"]+'" ></a>';
     }
@@ -67,11 +67,11 @@ if(videos.length!=0) {
 }
 
 let genres_txt = For1("Type","genres",genres);
-let tags_txt = For1("标签","tag",tags);
+let tags_txt = For1("Tag","tag",tags);
 let languages_txt = For1("Languages","languages",languages);
 let countries_txt = For1("Area","countries",countries);
 
-let aka_txt = For2("又名","aka",aka);
+let aka_txt = For2("Nickname","aka",aka);
 let pubdates_txt = For2("Release Time","pubdates",pubdates);
 let durations_txt = For2("Length","durations",durations);
 
