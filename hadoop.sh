@@ -1,10 +1,10 @@
 ﻿#! /bin/bash
 
-# 该脚本为centos7安装hadoop2.7的一键安装脚本（单机版）
+# 兄弟们，这是Centos7安装hadoop2.7的一键安装脚本（单机版）
 # jdk、hadoop、scala、spark等安装包在放数据库的放盘中有提供
-# 使用时请注意修改15、16行的获取本机IP地址，以及修改24、25行的安装包文件存放的地址
-# 脚本运行过程中有几个步骤需要自己手动输入yes，完成免密登陆（会有提示）
-# 待安装完成会自动重启，重启后请直接运行命令“start-all.sh”启动hadoop，“start-spark-all.sh”启动spark
+# 使用时修改15、16行的获取本机IP地址，以及修改24、25行的安装包文件存放的地址
+# 运行过程中有几个步骤需要自己手动输入yes
+# 待安装完成会自动重启，重启后直接运行命令“start-all.sh”启动hadoop，“start-spark-all.sh”启动spark
 
 #7.0之后的版本
 systemctl stop firewalld
